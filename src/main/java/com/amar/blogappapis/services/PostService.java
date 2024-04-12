@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.amar.blogappapis.entities.Post;
 import com.amar.blogappapis.payloads.PostDto;
+import com.amar.blogappapis.payloads.PostResponse;
 
 public interface PostService  {
 	
@@ -13,14 +14,17 @@ public interface PostService  {
 	
 	//update
 	
-	Post updatePost(PostDto postDto, Integer postId);
+	PostDto updatePost(PostDto postDto, Integer postId);
 	
 	//delete
 	
 	void deletePost(Integer postId);
 	
 	//get all post
-	List<PostDto> getAllPost();
+	//List<PostDto> getAllPost();
+	
+	//get all post with pagination and sorting
+	PostResponse getAllPost(Integer pageNumber, Integer pageSize,String sortBy);
 	
 	//get a single post 
 	
@@ -28,7 +32,10 @@ public interface PostService  {
 	
 	//get all post by category
 	
-	List<PostDto> getPostByCategory(Integer categoryId);
+	//List<PostDto> getPostByCategory(Integer categoryId);
+	
+	//get all post by category with pagination
+	PostResponse getPostByCategory(Integer categoryId, Integer pageNumber, Integer pageSize);
 	
 	//get all posts by user
 	
@@ -36,7 +43,7 @@ public interface PostService  {
 	
 	//search Post
 	
-	List<Post> searchPosts(String keyword);
+	List<PostDto> searchPosts(String keyword);
 	
 	
 	
